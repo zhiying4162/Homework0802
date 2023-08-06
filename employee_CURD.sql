@@ -17,3 +17,9 @@ UPDATE `員工`
 SET `分機號碼`='1234' 
 WHERE `分機號碼`='2234'
 
+//尋找
+
+SELECT `員工編號`, `姓名`, `職稱`, `出生日期`,round((DATEDIFF(now(), `任用日期`))/365)
+FROM `員工`
+WHERE QUARTER(`出生日期`)=QUARTER(now())
+ORDER BY round((DATEDIFF(now(), `任用日期`))/365) DESC;
